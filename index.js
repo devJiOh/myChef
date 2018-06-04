@@ -1,8 +1,12 @@
+var cs = require('./console-stamp.js');
 var express = require('express');
+//var log = console.log;
 var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 var app     = express();
+
+
 //var $ = require('jQuery);
 
 app.get('/scrape', function(req, res){
@@ -32,5 +36,9 @@ app.get('/scrape', function(req, res){
 })
 
 app.listen('8081')
-console.log('Magic happens on port 8081');
+console.log('Finished Scrape');
+
+// log.call(console, Date.now());
+// log.apply(console, arguments);
+
 exports = module.exports = app;
