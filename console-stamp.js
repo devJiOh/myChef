@@ -9,5 +9,5 @@ console.log('file inc');
 call by using:
 log.call(console. Date.now());
 log.apply(console.arguments);
-
+.
 */
