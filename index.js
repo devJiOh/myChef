@@ -5,9 +5,30 @@ var fs = require('fs');
 var request = require('request');
 var cheerio = require('cheerio');
 var app     = express();
-
-
 //var $ = require('jQuery);
+const rp = require('request-promise');
+const options = {
+	uri : 'https://www.imdb.com/title/tt5463162/',
+	transform: function (body){
+		return cheerio.load(body);
+	}
+};
+
+// boilerplayer of alternate way to scrape
+rp(options)
+	.then(($) => {
+		console.log($);
+	})
+	.catch((err) => {
+		console.log(err);
+	});
+	
+/*
+*	Use selectors in a htmlDoc to traverse and select elements in the doc.
+*	Get the data using a selector. eg. <ul id="ingredient">tomato</li>
+* 	Select id's with '#', classes with '.'
+*/
+
 
 app.get('/scrape', function(req, res){
     // The URL we will scrape from - in our example Anchorman 2.
