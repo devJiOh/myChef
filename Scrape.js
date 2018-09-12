@@ -8,13 +8,7 @@ let scrape = async() => {
 	await page.waitFor(1000);
 	
 	const result = await page.evaluate(() => {
-		let title = document.querySelector('#pdp-product-title > span > span.product-name').innerText;
-		// let title = document.querySelector('#title-overview-widget > div.vital > div.title_block > div > div.titleBar > div.title_wrapper > h1').innerText;
-		
-		// let in
-		// #tile_colrsCatalogEntryRecommendationWidget_Data_2_-2002_3074457345618276069_6 > div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > h3:nth-child(3) > a:nth-child(1) > span:nth-child(1) > span:nth-child(2)
-		// #tile_colrsCatalogEntryRecommendationWidget_Data_2_-2002_3074457345618276069_5 > div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > h3:nth-child(3) > a:nth-child(1) > span:nth-child(1) > span:nth-child(2)
-		// #tile_colrsCatalogEntryRecommendationWidget_Data_2_-2002_3074457345618276069_4 > div:nth-child(1) > div:nth-child(1) > header:nth-child(1) > h3:nth-child(3) > a:nth-child(1) > span:nth-child(1) > span:nth-child(2)
+		let title = document.querySelector('span.product-name').innerText;
 		
 		return{
 			title
@@ -43,10 +37,35 @@ let scrape2 = async() => {
 	return result;
 }
 
+let getAllTitles = async() => {
+	const browser = await puppeteer.launch({headless: false});
+	const page = await browser.newPage();
+	await page.goto('https://shop.coles.com.au/a/a-national/everything/browse?cid=alwayson_link_Coles.com.au_homepage-meganavdropdown_shop-online');
+	await page.waitFor(1000);
+	
+	const result = await page.evaluate(() => {
+		let title = document.querySelectorAll('h3 > a > span > span.product-name').innerText;
+
+		return{
+			title
+		}
+	});
+	
+	browser.close();
+	return result;
+	
+}
+
 scrape().then((value) => {
 	console.log(value);
 });
 
 scrape2().then((value) => {
 	console.log(value);
+});
+
+getAllTitles().then((value) => {
+	var i;
+	for(i = 0; i < value.length; i++)
+		console.log(value[i] + " asdf");
 });
