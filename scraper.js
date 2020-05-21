@@ -10,10 +10,11 @@ axios.get(url)
             data = [];
             const $ = cheerio.load(html);
 
-
-            $('.box--description--header').each((i, elem) => {
+            $('.ratio-container.m-ratio-57x25.box--description.m-no-ratio-on-phone').each((i, elem) => {
                 data.push({
-                    title : $(elem).text()
+                    title : $(elem).find('div.box--description--header').text().trim(),
+                    price : $(elem).find('div.box--price > .box--value, .box--decimal').text().trim(),
+                    ratio : $(elem).find('div.box--price > .box--baseprice').text().trim()
                 });
             });
 
