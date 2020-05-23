@@ -41,13 +41,13 @@ Alternatively use other stores, eg. Aldi - is usable
 
 ## Testing Plan
 ## Operations/Maintenance
-#05/2020
+###### 05/2020
 - Using approved sites, crawl and scrape GROCERY pages for all items
 - Create NoSQL database
 - Insert into database
 - Testing of add, view, remove, edit from database
 
-#06/2020
+###### 06/2020
 - Using approved sites, crawl and scrape RECIPE pages for dishes
 - Insert into database: DISHES -> RECIPES
 - Insert dummy user with
@@ -56,10 +56,10 @@ Alternatively use other stores, eg. Aldi - is usable
 - Test REMOVE ITEM, VIEW RECIPES
 - Test ADD ITEM, VIEW RECIPES
 
-#07/2020
+###### 07/2020
 - Develop mobile app
 
-#08/2020
+###### 08/2020
 - Publish mobile app
 - Develop web app
 
