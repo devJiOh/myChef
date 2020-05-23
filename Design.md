@@ -2,8 +2,13 @@
 
 ---
 
-## myChef
-### Joseph B., Bala K.
+## Title
+MyChef
+
+### project members
+- Joseph B.
+- Bala K.
+
 ## Objective
 
 - An application to help find best deals and compare prices in grocery stores locally/online,
