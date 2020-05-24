@@ -42,12 +42,14 @@ Back end use as Nodejs, front end Reactjs as web application and android studio 
 > (h) use any robot, spider, site search and retrieval application or other mechanism to retrieve or index any portion of the Site;"
 
 
-Alternatively use other stores, eg. Aldi - is usable
+Alternatively: 
+- use other stores, eg. Aldi - is usable
+- users manually add/update items - to be approved by other users
 
 ## Testing Plan
 ## Operations/Maintenance
 ###### 05/2020
-- [ ] Using approved sites, crawl and scrape GROCERY pages for all items
+- [x] Using approved sites, crawl and scrape GROCERY pages for all items
 - [ ] Create NoSQL database
 - [ ] Insert into database
 - [ ] Testing of add, view, remove, edit from database
