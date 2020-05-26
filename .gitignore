@@ -1,6 +1,4 @@
 node_modules/
 test.js
-package-lock.json
-package.json
 Test/
 testSource.txt
