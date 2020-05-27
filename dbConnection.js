@@ -1,10 +1,8 @@
 const MongoClient = require('mongodb').MongoClient;
 
-const uri = "mongodb+srv://user:coly8p6qg2gKugcr@grocerydb-lds9j.mongodb.net/test?retryWrites=true&w=majority";
-
 async function main() {
     const uri = "mongodb+srv://user:coly8p6qg2gKugcr@grocerydb-lds9j.mongodb.net/test?retryWrites=true&w=majority";
-    const client = new MongoClient(uri);
+    const client = new MongoClient(uri, {useUnifiedTopology: true, useNewUrlParser: true });
 
     try {
         // Connect to the MongoDB cluster
