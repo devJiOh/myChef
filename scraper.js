@@ -1,6 +1,6 @@
 const cheerio = require('cheerio');
 const axios = require('axios');
-const rp = require('request-promise');
+const MongoClient = require('mongodb').MongoClient;
 
 const crawl = async(crawlUrls) => {
     await axios.get(crawlUrls)
@@ -11,23 +11,17 @@ const crawl = async(crawlUrls) => {
 
                 $('.ratio-container.m-ratio-57x25.box--description.m-no-ratio-on-phone').each((i, elem) => {
                     data.push({
-                        title : $(elem).find('.box--description--header').text().trim(),
-                        price : $(elem).find('.box--value,.box--decimal').text().trim(),
-                        ratio : $(elem).find('.box--baseprice').text().trim()
+                        title : $(elem).find('div.box--description--header').text().trim(),
+                        price : $(elem).find('div.box--price > .box--value, .box--decimal').text().trim(),
+                        ratio : $(elem).find('div.box--price > .box--baseprice').text().trim()
                     });
                 });
 
-<<<<<<< HEAD
-            $('.ratio-container.m-ratio-57x25.box--description.m-no-ratio-on-phone').each((i, elem) => {
-                data.push({
-                    title : $(elem).find('div.box--description--header').text().trim(),
-                    price : $(elem).find('div.box--price > .box--value, .box--decimal').text().trim(),
-                    ratio : $(elem).find('div.box--price > .box--baseprice').text().trim()
-                });
-            });
-=======
+                // Return data to add in MongoDB collection 'groceries'
+                // TODO:
                 console.log(data);
             }
+
             getData(response.data)
         })
         .catch(error => {
@@ -47,8 +41,6 @@ const urls = [`${aldiUrl}/super-savers/`,
     `${aldiUrl}/pantry/chocolate/`, `${aldiUrl}/pantry/olive-oil/`,
     `${aldiUrl}/pantry/just-organic/`, `${aldiUrl}/pantry/coffee/`
     ];
-
->>>>>>> crawl_function
 
 // not listed: fruit-veg, aus grown, meat
 urls.forEach(function(value){

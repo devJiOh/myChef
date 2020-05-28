@@ -19,7 +19,19 @@ MyChef
 Back end use as Nodejs, front end Reactjs as web application and android studio as mobile application
 
 ## Detailed Design
-
+#### MongoDB
+Collections:
+    - groceries
+        - product
+        - price
+        - ratio
+    - inventory
+        - product
+    - recipes
+        - name
+        - est_duration
+        // TODO
+        - products & amounts[]
 
 ### Examples
 ## Security/Concern
@@ -42,7 +54,7 @@ Back end use as Nodejs, front end Reactjs as web application and android studio 
 > (h) use any robot, spider, site search and retrieval application or other mechanism to retrieve or index any portion of the Site;"
 
 
-Alternatively: 
+Alternatively:
 - use other stores, eg. Aldi - is usable
 - users manually add/update items - to be approved by other users
 

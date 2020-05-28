@@ -10,6 +10,7 @@ async function main() {
 
         // Make the appropriate DB calls
         await listDatabases(client);
+        await addProducts(client);
 
     } catch (e) {
         console.error(e);
