@@ -1,8 +1,11 @@
+// Node framework dependencies
 const cheerio = require('cheerio');
 const axios = require('axios');
 const MongoClient = require('mongodb').MongoClient;
 
+// Crawl and get ingredients
 const crawl = async(crawlUrls) => {
+    // Make request and scrape data from <Aldi>
     await axios.get(crawlUrls)
         .then(response => {
             let getData = html => {
@@ -17,12 +20,14 @@ const crawl = async(crawlUrls) => {
                     });
                 });
 
-                // Return data to add in MongoDB collection 'groceries'
-                // TODO:
                 console.log(data);
             }
 
+            // Return data to add in MongoDB collection 'groceries'
+            // TODO:
             getData(response.data)
+
+            // return data;
         })
         .catch(error => {
             console.log('error');
@@ -42,7 +47,15 @@ const urls = [`${aldiUrl}/super-savers/`,
     `${aldiUrl}/pantry/just-organic/`, `${aldiUrl}/pantry/coffee/`
     ];
 
-// not listed: fruit-veg, aus grown, meat
-urls.forEach(function(value){
-    crawl(value);
-})
+    urls.forEach(url => {
+       crawl(url);
+   })
+
+
+// function insertDB(){
+//     urls.forEach(url => {
+//         crawl(url);
+//     })
+//
+//     // console.log(`${data} 2`);
+// }

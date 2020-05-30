@@ -53,16 +53,18 @@ Collections:
 > You must not
 > (h) use any robot, spider, site search and retrieval application or other mechanism to retrieve or index any portion of the Site;"
 
+3. Some items in aldi for: fruit-veg, meat (priced by weight)
 
 Alternatively:
 - use other stores, eg. Aldi - is usable
 - users manually add/update items - to be approved by other users
 
+
 ## Testing Plan
 ## Operations/Maintenance
 ###### 05/2020
 - [x] Using approved sites, crawl and scrape GROCERY pages for all items
-- [ ] Create NoSQL database
+- [x] Create MongoDB
 - [ ] Insert into database
 - [ ] Testing of add, view, remove, edit from database
 
